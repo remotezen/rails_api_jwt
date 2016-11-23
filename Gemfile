@@ -1,3 +1,5 @@
+#https://github.com/remotezen/rails_api_jwt
+#http://yoember.com/#lesson-1
 source 'https://rubygems.org'
 gem 'rails', github: "rails/rails"
 gem 'pry-rails'
