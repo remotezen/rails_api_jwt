@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :invitations
   post 'login', to: 'sessions#login'
   resources :secrets, only: :index
   resources :users, only: [:index, :create]
