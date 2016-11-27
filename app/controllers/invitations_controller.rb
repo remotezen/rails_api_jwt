@@ -21,6 +21,6 @@ class InvitationsController < ApplicationController
       ActiveModelSerializers::Deserialization.jsonapi_parse(params)
     end
 end
-class InvitationSerializer < ActiveModel:: Serializer
+class InvitationSerializer < ActiveModel::Serializer
   attributes :email
 end
