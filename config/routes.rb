@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :libraries
   resources :contacts
-  resources :invitations, only: [:index, :create]
+  resources :invitations, only: [:index, :create, :destroy, :show]
   post 'login', to: 'sessions#login'
   resources :secrets, only: :index
   resources :users, only: [:index, :create]
