@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161127025417) do
+ActiveRecord::Schema.define(version: 20161130151719) do
+
+  create_table "authors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.integer "author_id"
+    t.string "title"
+    t.date "releaseDate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_books_on_author_id"
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.string "email"
@@ -21,7 +36,6 @@ ActiveRecord::Schema.define(version: 20161127025417) do
 
   create_table "invitations", force: :cascade do |t|
     t.string "email"
-    t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

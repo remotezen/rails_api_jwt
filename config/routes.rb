@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :books
+  resources :authors
   resources :libraries
   resources :contacts
   resources :invitations, only: [:index, :create, :destroy, :show]
