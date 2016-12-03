@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161122142915) do
+ActiveRecord::Schema.define(version: 20161202214805) do
 
   create_table "secrets", force: :cascade do |t|
     t.string "text"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20161122142915) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_confirmation"
+    t.boolean "admin", default: false
   end
 
 end

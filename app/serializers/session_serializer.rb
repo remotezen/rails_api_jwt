@@ -1,3 +1,3 @@
-class SessionSerializer < ActiveModel::Serializer
+class UserSerializer < ActiveModel::Serializer
   attributes :access_token
 end
