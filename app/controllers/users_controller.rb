@@ -3,11 +3,12 @@ class UsersController < ApplicationController
     only: :create
   def index
     if params[:me].present?
-      users = User.find(@current_user.id)
+      user = User.find(@current_user.id)
+      render json: user, status: 200
     else
       users = User.all
+      render json: users, status: 200
     end
-    render json: users.errors, status: :unprocessable_entity
   end
   def show
     user =  User.find(params[:id]);
