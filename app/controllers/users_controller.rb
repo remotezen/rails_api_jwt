@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :set_current_user, :authenticate_request,
     only: :create
+  before_action :set_user, only: [:create, :show , :update, :destroy]
   def index
     if params[:me].present?
       user = User.find(@current_user.id)
@@ -20,6 +21,15 @@ class UsersController < ApplicationController
 
     end
   end
+  def update
+    if @user.update_attributes(user_params)
+      render json: @user, status: 200
+    else
+      render json: {errors: "no such user"},
+        status: 404
+    end
+
+  end
 
   def create
     @user = User.new(user_params)
@@ -31,6 +41,11 @@ class UsersController < ApplicationController
 
   end
   private
+
+  def set_user
+    @user = User.find(params[:id]);
+
+  end
 
     def user_params
       ActiveModelSerializers::Deserialization.jsonapi_parse(params)
